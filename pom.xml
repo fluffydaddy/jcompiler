@@ -58,7 +58,7 @@
         </repository>
     </repositories>
 
-    <description>A lightweight library that simplifies working with data files in java.</description>
+    <description>A lightweight library to simplify the java compilation process.</description>
     <url>https://github.com/fluffydaddy/jcompiler</url>
     <inceptionYear>2024</inceptionYear>
     <licenses>

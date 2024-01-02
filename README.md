@@ -1,4 +1,4 @@
 # JCompiler
-[![](https://jitpack.io/v/fluffydaddy/jhelper.svg)](https://jitpack.io/#fluffydaddy/jhelper)
+[![](https://jitpack.io/v/fluffydaddy/jcompiler.svg)](https://jitpack.io/#fluffydaddy/jcompiler)
 
-A lightweight library that simplifies working with data files in java.
+A lightweight library to simplify the java compilation process.
