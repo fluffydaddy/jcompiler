@@ -22,16 +22,48 @@ import io.fluffydaddy.jcompiler.Project;
 import io.fluffydaddy.jcompiler.Template;
 import io.fluffydaddy.jconsole.Console;
 
+/**
+ * Factory interface for creating instances of various components in the compiler system.
+ *
+ * @param <T> Type of template.
+ * @param <C> Type of compiler.
+ * @param <S> Type of console.
+ * @param <O> Type of optimizer.
+ * @param <P> Type of project.
+ */
 public interface CompilerFactory<T extends Template,
         C extends Compiler,
         S extends Console,
         O extends Optimizer,
         P extends Project> {
-    T createTemplate(String projects);
+    /**
+     * Create a template with the specified projects path.
+     *
+     * @param projectsPath The path to projects.
+     * @return An instance of the template.
+     */
+    T createTemplate(String projectsPath);
     
+    /**
+     * Create a compiler based on the provided template.
+     *
+     * @param template The template to use for compilation.
+     * @return An instance of the compiler.
+     */
     C createCompiler(T template);
     
+    /**
+     * Create a console for the compiler system.
+     *
+     * @return An instance of the console.
+     */
     S createConsole();
     
+    /**
+     * Create an optimizer for the specified project.
+     *
+     * @param project The project for which the optimizer is created.
+     * @return An instance of the optimizer.
+     */
     O createOptimizer(P project);
 }

@@ -16,8 +16,40 @@
 
 package io.fluffydaddy.jcompiler.task;
 
+/**
+ * Enum representing different modes of compilation tasks.
+ */
 public enum TaskMode {
+    /**
+     * Generate sources mode.
+     */
     GENERATE_SOURCES,
+    
+    /**
+     * Compile the generated files.
+     */
     COMPILE_GENERATE,
+    
+    /**
+     * Compile sources mode.
+     */
     COMPILE_SOURCES;
+    
+    /**
+     * Get a human-readable description of the compilation mode.
+     *
+     * @return A description of the compilation mode.
+     */
+    public String getDescription() {
+        switch (this) {
+            case GENERATE_SOURCES:
+                return "Generate sources mode.";
+            case COMPILE_GENERATE:
+                return "Compile the generated files.";
+            case COMPILE_SOURCES:
+                return "Compile sources mode.";
+            default:
+                throw new UnsupportedOperationException("Unsupported compilation mode.");
+        }
+    }
 }

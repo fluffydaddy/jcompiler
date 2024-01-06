@@ -20,12 +20,39 @@ import io.fluffydaddy.jhelper.files.FileHandle;
 
 import java.io.IOException;
 
+/**
+ * Interface for creating and managing projects using a template.
+ */
 public interface Template {
+    /**
+     * Create a new project with the specified name.
+     *
+     * @param projectName The name of the new project.
+     * @return The created project.
+     * @throws IOException If an I/O error occurs during project creation.
+     */
     Project makeProject(String projectName) throws IOException;
     
+    /**
+     * Open an existing project with the specified name.
+     *
+     * @param projectName The name of the existing project to open.
+     * @return The opened project.
+     */
     Project openProject(String projectName);
     
+    /**
+     * Exit from the project with the specified name.
+     *
+     * @param projectName The name of the project to exit.
+     * @return The exited project.
+     */
     Project exitProject(String projectName);
     
+    /**
+     * Get the handle to the directory containing all projects.
+     *
+     * @return The handle to the projects directory.
+     */
     FileHandle getProjects();
 }

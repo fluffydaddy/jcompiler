@@ -19,6 +19,15 @@ package io.fluffydaddy.jcompiler;
 import io.fluffydaddy.reactive.DataSubscriber;
 import io.fluffydaddy.reactive.ErrorObserver;
 
+/**
+ * Interface for the optimizer component in the compiler system.
+ */
 public interface Optimizer extends DataSubscriber<ErrorObserver> {
+    /**
+     * Optimize the code from the specified input path and save the optimized code to the output path.
+     *
+     * @param inputPath  The path to the input code.
+     * @param outputPath The path to save the optimized code.
+     */
     void optimize(String inputPath, String outputPath);
 }

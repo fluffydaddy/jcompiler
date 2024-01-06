@@ -16,10 +16,25 @@
 
 package io.fluffydaddy.jcompiler.task;
 
+/**
+ * Listener for compilation tasks.
+ */
 public interface TaskListener {
+    /**
+     * @param remainingWork Number of files needed for compilation/generation.
+     * @param mode          Compilation state.
+     */
     void onCompile(int remainingWork, TaskMode mode);
     
+    /**
+     * @param compiledWork Number of files compiled/generated.
+     * @param mode         Compilation state.
+     */
     void onFinished(int compiledWork, TaskMode mode);
     
+    /**
+     * @param progress Compilation/generation progress.
+     * @param mode     Compilation state.
+     */
     void onProgress(float progress, TaskMode mode);
 }

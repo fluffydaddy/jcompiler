@@ -22,6 +22,12 @@ import io.fluffydaddy.jtasks.impl.TaskService;
 import io.fluffydaddy.reactive.DataSubscription;
 import io.fluffydaddy.reactive.ErrorObserver;
 
+/**
+ * Abstract class representing a compiler with methods for creating a reactive compiler,
+ * starting the compiler, running the compiler, and handling cancellation.
+ *
+ * @param <C> The type of the task compiler.
+ */
 public abstract class Compiler<C extends TaskCompiler> implements Task<C>, Runnable, DataSubscription {
     protected final TaskListener taskListener;
     
@@ -31,6 +37,12 @@ public abstract class Compiler<C extends TaskCompiler> implements Task<C>, Runna
     protected final TaskService<Void, Void> taskExecutor;
     protected final ErrorObserver errorObserver;
     
+    /**
+     * Constructor for the Compiler class.
+     *
+     * @param listener      The task listener.
+     * @param errorObserver The error observer.
+     */
     public Compiler(TaskListener listener, ErrorObserver errorObserver) {
         this.taskListener = listener;
         this.errorObserver = errorObserver;
@@ -48,20 +60,34 @@ public abstract class Compiler<C extends TaskCompiler> implements Task<C>, Runna
         };
     }
     
+    /**
+     * Starts the compiler.
+     */
     public void start() {
         taskExecutor.execute();
     }
     
+    /**
+     * Checks if the compiler is canceled.
+     *
+     * @return True if the compiler is canceled, false otherwise.
+     */
     @Override
     public boolean isCanceled() {
         return isCanceled;
     }
     
+    /**
+     * Cancels the compiler.
+     */
     @Override
     public void cancel() {
         isCanceled = true;
     }
     
+    /**
+     * Runs the compiler, handling cancellation and exceptions.
+     */
     @Override
     public void run() {
         if (isCanceled()) {
@@ -73,10 +99,6 @@ public abstract class Compiler<C extends TaskCompiler> implements Task<C>, Runna
         } else {
             taskStarted(taskCompiler, true);
         }
-        
-        // log error
-        // log debug
-        // log output
         
         boolean lastRetCompile = false;
         try {
