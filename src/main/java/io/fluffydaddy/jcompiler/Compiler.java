@@ -19,8 +19,8 @@ package io.fluffydaddy.jcompiler;
 import io.fluffydaddy.jcompiler.task.TaskCompiler;
 import io.fluffydaddy.jcompiler.task.TaskListener;
 import io.fluffydaddy.jtasks.impl.TaskService;
-import io.fluffydaddy.reactive.DataSubscription;
-import io.fluffydaddy.reactive.ErrorObserver;
+import io.fluffydaddy.jreactive.DataSubscription;
+import io.fluffydaddy.jreactive.ErrorObserver;
 
 /**
  * Abstract class representing a compiler with methods for creating a reactive compiler,

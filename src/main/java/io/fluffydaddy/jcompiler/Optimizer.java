@@ -16,8 +16,8 @@
 
 package io.fluffydaddy.jcompiler;
 
-import io.fluffydaddy.reactive.DataSubscriber;
-import io.fluffydaddy.reactive.ErrorObserver;
+import io.fluffydaddy.jreactive.DataSubscriber;
+import io.fluffydaddy.jreactive.ErrorObserver;
 
 /**
  * Interface for the optimizer component in the compiler system.
